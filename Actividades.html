@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #FFDF82; /* Cambia el color de fondo de toda la pantalla según tus preferencias */
+            background-size: contain;
+            margin: 0;
+        }
+
+        header {
+            background-color: #f9bf12;
+            color: #333;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 17px;
+            padding: 4px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border: 1px solid #333;
+        }
+
+        #logo {
+            float: left;
+            margin-left: 20px;
+        }
+
+        #logo img {
+            width: 200px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 0px;
+            position: relative;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #776008;
+            font-weight: bold;
+            padding: 20px;
+            border: 1px solid #333;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #fff;
+        }
+
+        nav ul li {
+            margin-right: 0px;
+            position: relative;
+        }
+
+        nav ul li ul.submenu {
+            display: none;
+            position: absolute;
+            background-color: #f9bf12;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: auto;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        nav ul li:hover ul.submenu {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 24px;
+        }
+
+        nav ul li ul.submenu li {
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 2px;
+            transition: all 0.3s;
+        }
+
+        nav ul li ul.submenu li:hover {
+            transform: scale(1.1);
+        }
+
+        nav ul li ul.submenu li a {
+            font-size: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        #hero {
+            background-image: url('E:/imagenes/png/Baner.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            color: #fff;
+            font-family: 'Cambria', sans-serif;
+            text-align: center;
+            padding: 250px 0;
+            margin-top: 0px;
+        }
+
+        #hero p2 {
+            margin-bottom: 50px;
+            font-size: 50px;
+            position: relative;
+            top: -50px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-weight: bold;
+            text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000;
+        }
+
+        #hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            position: relative;
+            top: 100px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            position: center;
+            top: 40px;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        .two-columns {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 20px 50px;
+            align-items: center;
+            background-image: url('E:/imagenes/fondos/fondo de actividades.jpg'); /* Cambia 'ruta/de/tu/imagen.jpg' 
+            background-size: cover; /* Ajusta según tus necesidades */
+            background-repeat: no-repeat;
+            padding: 10px;
+        }
+
+        .activity-description {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .activity-description h3 {
+            font-size: 54px;
+            margin-bottom: 10px;
+        }
+
+        .activity-description p {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .activity-image {
+            flex: 1;
+            margin-left: 20px;
+            cursor: pointer;
+            background-color: #8BC34A;
+            padding: 10px;
+        }
+
+        .activity-image img {
+            max-width: 100%;
+            max-height: 450px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 3px 3px 5px #888;
+            transition: transform 0.2s;
+        }
+
+        .activity-image img:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #27245d;
+            color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-column {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-buttons a {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-buttons a:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+     <!-- Sección de Encabezado -->
+    <header>
+        <div id="logo">
+            <a href="Sam.html"><img src="E:/imagenes/png/logo2.png" alt="Logo de la Empresa" width="200" height="50"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Sam.html">Inicio</a></li>
+                <li><a href="Actividades.html">Actividades</a></li>
+                <li class="dropdown">
+                    <a href="#" id="colectivoLink">Colectivo</a>
+                    <ul class="submenu">
+                        <li><a href="Rosa María Torres Vera.html">Rosa María Torres Vera</a></li>
+                        <li><a href="Luis Manuel Mendoza Becerra.html">Luis Manuel Mendoza Becerra</a></li>
+                        <li><a href="Luis Ángel Tafoya Urbán.html">Luis Ángel Tafoya Urbán</a></li>
+                    </ul>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Héroe -->
+    <section id="hero">
+        <div class="container">
+            <p2>Actividades Organizacionales</p2>
+        </div>
+    </section>
+
+    <!-- Sección de Dos Columnas -->
+    <!-- Actividad 1 -->
+    <section class="two-columns">
+        <div class="activity-description">
+            <h3>Fumigación en Respuesta al COVID-19</h3>
+            <p>La fumigación y sanitización abarcó una amplia gama de instalaciones y vehículos de nuestra empresa, incluyendo camiones, camionetas y áreas de oficinas. La iniciativa tenía como objetivo principal mitigar cualquier posible riesgo de propagación del virus, creando un entorno más seguro y saludable para todos los involucrados en nuestras operaciones diarias.</p>
+        </div>
+        <div class="activity-image" onclick="openNewPage(1)">
+            <img src="E:/imagenes/Seleccion imagenes/Fumigación en Respuesta al COVID-19.jpg" alt="Actividad 1">
+        </div>
+    </section>
+
+    <!-- Actividad 2 -->
+    <section class="two-columns">
+        <div class="activity-description">
+            <h3>Vacunación contra el COVID-19</h3>
+            <p>En un paso crucial hacia la protección de nuestra familia laboral, hemos llevado a cabo una significativa campaña de vacunación contra el COVID-19. Nuestros choferes, así como el personal administrativo, han recibido sus dosis, marcando un hito importante en nuestra lucha contra la propagación del virus.</p>
+        </div>
+        <div class="activity-image" onclick="openNewPage(2)">
+            <img src="E:/imagenes/Seleccion imagenes/Vacunación contra el COVID-19.jpg" alt="Actividad 2">
+        </div>
+    </section>
+
+    <!-- Actividad 3 -->
+    <section class="two-columns">
+        <div class="activity-description">
+            <h3>Protocolo de simulacro de incendio</h3>
+            <p>Implementamos un riguroso protocolo de entrenamiento en el uso de extintores para todo nuestro personal. Durante estas sesiones prácticas, los participantes aprenden a manejar adecuadamente los extintores y practican técnicas efectivas para apagar incendios. Esta capacitación asegura una respuesta rápida y segura en caso de emergencias, contribuyendo a la seguridad de nuestros espacios y el bienestar de nuestra comunidad laboral.</p>
+        </div>
+        <div class="activity-image" onclick="openNewPage(3)">
+            <img src="E:/imagenes/Seleccion imagenes/Protocolo de simulacro de incendio.jpg" alt="Actividad 3">
+        </div>
+    </section>
+
+    <!-- Actividad 4 -->
+    <section class="two-columns">
+        <div class="activity-description">
+            <h3>Reconocimientos</h3>
+            <p>Cada reconocimiento representa un hito importante en el desarrollo profesional y personal de nuestros colaboradores. Desde cursos especializados hasta programas de desarrollo personal, nos enorgullece el compromiso constante de nuestro equipo con el aprendizaje continuo y la mejora.Estos reconocimientos no solo son una manifestación de la habilidad y dedicación individual, sino también un testimonio de la cultura de aprendizaje y crecimiento que fomentamos en nuestra empresa. Agradecemos a cada miembro del equipo por su búsqueda constante de conocimiento y mejora continua.</p>
+        </div>
+        <div class="activity-image" onclick="openNewPage(4)">
+            <img src="E:/imagenes/Seleccion imagenes/Reconocimientos.jpg" alt="Actividad 4">
+        </div>
+    </section>
+
+    <!-- Actividad 5 -->
+    <section class="two-columns">
+        <div class="activity-description">
+            <h3>Programa de Primeros Auxilios</h3>
+            <p>Es una iniciativa integral diseñada para equipar a nuestro personal con conocimientos y habilidades esenciales en situaciones de emergencia. A través de este programa, ofrecemos cursos especializados que abarcan una variedad de temas relacionados con los primeros auxilios y la atención inmediata.</p>
+        </div>
+        <div class="activity-image" onclick="openNewPage(5)">
+            <img src="E:/imagenes/Seleccion imagenes/Programa de Primeros Auxilios.jpg" alt="Actividad 5">
+        </div>
+    </section>
+
+    <!-- Actividad 6 -->
+    <section class="two-columns">
+        <div class="activity-description">
+            <h3>Eventos e Inauguraciones</h3>
+            <p>En el marco de nuestra dedicación a la comunidad y al fortalecimiento de lazos, organizamos diversos eventos e inauguraciones que celebran hitos significativos y promueven la participación activa de nuestros colaboradores y socios. Estos eventos son momentos especiales donde convergen la camaradería, la celebración y el reconocimiento de logros.</p>
+        </div>
+        <div class="activity-image" onclick="openNewPage(6)">
+            <img src="E:/imagenes/Seleccion imagenes/Eventos e Inaguraciones.jpg" alt="Actividad 6">
+        </div>
+    </section>
+
+    <!-- Actividad 7 -->
+    <section class="two-columns">
+        <div class="activity-description">
+            <h3>Implementación de Señalización</h3>
+            <p>Hemos llevado a cabo una completa implementación de señalización en todas nuestras instalaciones. Esta actividad abarca la planificación, diseño y colocación estratégica de señales que cumplen diversos propósitos, desde indicar rutas de evacuación hasta proporcionar información importante sobre procedimientos y servicios.</p>
+        </div>
+        <div class="activity-image" onclick="openNewPage(7)">
+            <img src="E:/imagenes/Seleccion imagenes/Implementación de Señalización.jpg" alt="Actividad 7">
+        </div>
+    </section>
+
+    <!-- Sección de Pie de Página -->
+    <footer>
+        <div class="footer-columns">
+            <!-- Columna 1: Logo de la empresa -->
+            <div class="footer-column">
+                <img src="E:/imagenes/png/logo.png" alt="Logo de la Empresa" width="150">
+            </div>
+
+            <!-- Columna 2: Lista de servicios de diseño web -->
+            <div class="footer-column">
+                <h3>Servicios de Diseño Web</h3>
+                <ul>
+                    <li><a href="#">Diseño Web Responsivo</a></li>
+                    <li><a href="#">Desarrollo de E-Commerce</a></li>
+                    <li><a href="#">Optimización SEO</a></li>
+                    <li><a href="#">Diseño de UX/UI</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Enlaces legales -->
+            <div class="footer-column">
+                <h3>Páginas Legales</h3>
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                </ul>
+            </div>
+
+          <!-- Columna 4: Botones de redes sociales -->
+            <div class="footer-column">
+                <h3>Síguenos en Redes Sociales</h3>
+                <div class="social-buttons">
+                    <a href="https://www.facebook.com/profile.php?id=100071632045654" class="fab fa-facebook-f"></a>
+                    <a href="https://twitter.com/Samautotransp" class="fab fa-twitter"></a>
+                    <a href="https://www.instagram.com/samautotransportes?igsh=c3F0Ymd1NXZzNXdv" class="fab fa-instagram"></a>
+                    <a href="https://www.youtube.com/channel/UCom5ijSoU1Ql-JqUF1cDFAQ" class="fab fa-youtube"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openNewPage(activityNumber) {
+           localStorage.setItem('scrollPosition', window.scrollY);
+           localStorage.setItem('activityNumber', activityNumber);
+            // Abre diferentes archivos HTML según el número de actividad
+            var pageName = 'actividad' + activityNumber + '.html';
+            window.location.href = pageName;
+        }
+// Espera a que se cargue toda la página antes de mostrarla
+window.addEventListener('load', (event) => {
+    // Obtiene la posición almacenada
+    const storedScrollPosition = localStorage.getItem('scrollPosition');
+    const storedActivityNumber = localStorage.getItem('activityNumber');
+
+    // Si hay una posición almacenada y la actividad actual es diferente a la almacenada
+    if (storedScrollPosition !== null && storedActivityNumber !== null) {
+        // Limpia la posición almacenada para que no afecte la apertura de futuras actividades
+        localStorage.removeItem('scrollPosition');
+
+        // Restaura la posición de la barra de desplazamiento
+        window.scrollTo(0, parseInt(storedScrollPosition));
+
+        // Encuentra la actividad por su número y obtén su posición
+        const activityElement = document.querySelector(`.activity-image[onclick="openNewPage(${storedActivityNumber})"]`);
+        if (activityElement) {
+            const activityPosition = activityElement.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo(0, activityPosition);
+        }
+    }
+
+    // Muestra la página una vez que todo esté cargado
+    document.body.style.visibility = 'visible';
+});
+
+     
+    </script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <style>
+          body {
+            background-image: url('E:/imagenes/fondos/fondo de las imagenes.jpg'); /* Reemplaza 'ruta/de/tu/imagen.jpg'              con la ruta de tu imagen */
+             background-size: contain;
+
+            margin: 0;
+        }
+ 
+        /* Estilos para la sección de encabezado */
+        header {
+            background-color:  #f9bf12;
+            color: #333;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 17px;
+            padding: 4px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border: 1px solid #333; /* Aplica el borde a todos los lados del encabezado */        
+        }
+    
+        #logo {
+            float: left;
+            margin-left: 20px;
+        }
+        #logo img {
+            width: 200px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+        nav li {
+            margin-right: 0px;
+            position: relative;
+        }
+        nav a {
+            text-decoration: none;
+            color: #776008;
+            font-weight: bold;
+            padding: 20px;
+            border: 1px solid #333;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #fff;
+        }
+
+        /* Estilos para la sección de héroe */
+        #hero {
+            background-image: url('E:/imagenes/png/Baner.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            color: #fff;
+            font-family: 'Cambria', sans-serif;
+            text-align: center;
+            padding: 250px 0;
+        }
+
+        #hero p2 {
+            font-size: 50px;
+            margin-bottom: 50px;
+            position: relative;
+            top: 10px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-weight: bold;
+            text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000;
+            margin-top: 61px;
+        }
+
+        #hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            position: relative;
+            top: 100px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            position: center;
+            top: 40px;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+       
+        /* Estilos para la sección de galería */
+        .image-gallery p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 40px;
+            margin-top: 10px;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            padding: 20px;
+        }
+        
+        .description-container {
+         width: 100%; /* Ocupa todo el ancho disponible */
+         text-align: center; /* Centra el texto */
+         }
+
+        .image-gallery img {
+            width: calc(33.33% - 10px);
+            margin-bottom: 20px;
+            border: 3px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 3px 3px 5px #888;
+            transition: transform 0.2s;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .image-gallery img::after {
+            content: attr(alt);
+            display: block;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px 10px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-size: 12px;
+        }
+        
+        /* Estilos para la sección de pie de página */
+        footer {
+            background-color: #27245d;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-column {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-buttons a {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-buttons a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+   
+
+</head>
+<body>
+    <!-- Sección de Encabezado -->
+    <header>
+        <div id="logo">
+            <a href="Sam.html"><img src="E:/imagenes/png/logo2.png" alt="Logo de la Empresa" width="200" height="50"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Actividades.html">Regresar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Héroe -->
+    <section id="hero">
+        <div class="container">
+            <p2>Imágenes del Proceso de Desinfección y Fumigación.</p2>
+        </div>
+    </section>
+
+    <!-- Sección de Galería de Imágenes -->
+    <section class="image-gallery">
+        <div class="description-container">
+            <p>Autobuses.</p>
+        </div>
+        <div class="image-container">
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/0.jpg"><img src="E:/imagenes/fumigacion/0.jpg" alt="imagen 1"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/1.jpg"><img src="E:/imagenes/fumigacion/1.jpg" alt="imagen 2"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/2.jpg"><img src="E:/imagenes/fumigacion/2.jpg" alt="imagen 3"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/3.jpg"><img src="E:/imagenes/fumigacion/3.jpg" alt="imagen 4"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/4.jpg"><img src="E:/imagenes/fumigacion/4.jpg" alt="imagen 5"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/5.jpg"><img src="E:/imagenes/fumigacion/5.jpg" alt="imagen 6"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/6.jpg"><img src="E:/imagenes/fumigacion/6.jpg" alt="imagen 7"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/7.jpg"><img src="E:/imagenes/fumigacion/7.jpg" alt="imagen 8"></a>
+        </div>
+
+        <div class="description-container">
+            <p>Camionetas.</p>
+        </div>
+        <div class="image-container">
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/8.jpg"><img src="E:/imagenes/fumigacion/8.jpg" alt="imagen 9"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/9.jpg"><img src="E:/imagenes/fumigacion/9.jpg" alt="imagen 10"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/10.jpg"><img src="E:/imagenes/fumigacion/10.jpg" alt="imagen 11"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/11.jpg"><img src="E:/imagenes/fumigacion/11.jpg" alt="imagen 12"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/12.jpg"><img src="E:/imagenes/fumigacion/12.jpg" alt="imagen 13"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/13.jpg"><img src="E:/imagenes/fumigacion/13.jpg" alt="imagen 14"></a>
+        </div>
+
+        <div class="description-container">
+            <p>Oficinas administrativas.</p>
+        </div>
+        <div class="image-container">
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/14.jpg"><img src="E:/imagenes/fumigacion/14.jpg" alt="imagen 15"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/15.jpg"><img src="E:/imagenes/fumigacion/15.jpg" alt="imagen 16"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/16.jpg"><img src="E:/imagenes/fumigacion/16.jpg" alt="imagen 17"></a>
+            <a data-fancybox="gallery" href="E:/imagenes/fumigacion/17.jpg"><img src="E:/imagenes/fumigacion/17.jpg" alt="imagen 18"></a>
+        </div>
+    </section>
+    <!-- Sección de Pie de Página -->
+    <footer>
+        <div class="footer-columns">
+            <!-- Columna 1: Logo de la empresa -->
+            <div class="footer-column">
+                <img src="E:/imagenes/png/logo.png" alt="Logo de la Empresa" width="150">
+            </div>
+
+            <!-- Columna 2: Lista de servicios de diseño web -->
+            <div class="footer-column">
+                <h3>Servicios de Diseño Web</h3>
+                <ul>
+                    <li><a href="#">Diseño Web Responsivo</a></li>
+                    <li><a href="#">Desarrollo de E-Commerce</a></li>
+                    <li><a href="#">Optimización SEO</a></li>
+                    <li><a href="#">Diseño de UX/UI</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Enlaces legales -->
+            <div class="footer-column">
+                <h3>Páginas Legales</h3>
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                </ul>
+            </div>
+
+              <!-- Columna 4: Botones de redes sociales -->
+            <div class="footer-column">
+                <h3>Síguenos en Redes Sociales</h3>
+                <div class="social-buttons">
+                    <a href="https://www.facebook.com/profile.php?id=100071632045654" class="fab fa-facebook-f"></a>
+                    <a href="https://twitter.com/Samautotransp" class="fab fa-twitter"></a>
+                    <a href="https://www.instagram.com/samautotransportes?igsh=c3F0Ymd1NXZzNXdv" class="fab fa-instagram"></a>
+                    <a href="https://www.youtube.com/channel/UCom5ijSoU1Ql-JqUF1cDFAQ" class="fab fa-youtube"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

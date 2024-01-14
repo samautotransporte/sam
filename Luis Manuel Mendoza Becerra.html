@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Manuel Mendoza Becerra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #fff;
+            margin: 0;
+        }
+
+        header {
+            background-color: #f9bf12;
+            color: #333;
+            font-family: Open Sans, sans-serif;
+            font-size: 17px;
+            padding: 4px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border: 1px solid #333;
+        }
+
+        #logo {
+            float: left;
+            margin-left: 20px;
+        }
+
+        #logo img {
+            width: 200px;
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 0px;
+            position: relative;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #776008;
+            font-weight: bold;
+            padding: 20px;
+            border: 1px solid #333;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #fff;
+        }
+
+        nav ul li {
+            margin-right: 0px;
+            position: relative;
+        }
+
+        nav ul li ul.submenu {
+            display: none;
+            position: absolute;
+            background-color: #f9bf12;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: auto; /* Ajuste para adaptarse al contenido */
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        nav ul li:hover ul.submenu {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 24px;
+        }
+
+        /* Estilo para los elementos del submenú */
+        nav ul li ul.submenu li {
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 2px; /* Añade espacio entre los elementos del submenú */
+            transition: all 0.3s; /* Agrega una transición para suavizar el cambio de tamaño */
+        }
+
+        nav ul li ul.submenu li:hover {
+            transform: scale(1.1); /* Cambia el tamaño al 110% cuando se realiza un hover */
+        }
+
+        /* Estilo para el texto del submenú */
+        nav ul li ul.submenu li a {
+            font-size: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        #hero {
+            color: #fff;
+            font-family: 'Cambria', sans-serif;
+            text-align: center;
+            padding: 250px 0;
+            margin-top: 0;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('E:/imagenes/fondos/Baner para pc.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .et_pb_image_wrap {
+            width: 289.27px;
+            height: 289.27px;
+            overflow: hidden;
+            border: 10px solid #fff;
+            border-radius: 40px;
+            margin-top: 150px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .et_pb_image_wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+        }
+
+        .hero-info {
+            text-align: center;
+            color: #27235D!important;
+            font-family: 'Abyssinica SIL', Georgia, 'Times New Roman', serif;
+            font-weight: 700;
+            font-size: 24px;
+            padding-top: 20px;
+            margin: 0 auto; /* Centra el contenedor */
+            max-width: 738px; /* Ajusta según tus necesidades */
+        }
+        h1 {
+            font-family: 'Abyssinica SIL', Georgia, 'Times New Roman', serif !important;
+            font-weight: 700;
+            font-size: 60px;
+            color: #27235D !important;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-family: 'Abyssinica SIL', Georgia, 'Times New Roman', serif !important;
+            font-weight: 700;
+            font-size: 42px;
+            color: #27235D !important;
+            text-align: center;
+        }
+
+        hn {
+            font-family: 'Abyssinica SIL', Georgia, 'Times New Roman', serif !important;
+            font-weight: 500;
+            font-size: 42px;
+            color: #27235D !important;
+            text-align: center;
+        }
+
+        h4 {
+            font-family: 'Abyssinica SIL', Georgia, 'Times New Roman', serif !important;
+            font-weight: 500;
+            font-size: 40px;
+            color: #27235D !important;
+            text-align: justify;
+        }
+
+        h5 {
+            font-family: 'Abyssinica SIL', Georgia, 'Times New Roman', serif !important;
+            font-weight: 500;
+            font-size: 37px;
+            color: #27235D !important;
+            text-align: justify;
+        }
+
+        h6 {
+            font-family: 'Abyssinica SIL', Georgia, 'Times New Roman', serif !important;
+            font-weight: 700;
+            font-size: 40px;
+            color: #27235D !important;
+            text-align: justify;
+        }
+
+        hp {
+            font-family: 'Abyssinica SIL', Georgia, 'Times New Roman', serif !important;
+            font-weight: 500;
+            font-size: 40px;
+            color: #27235D !important;
+            text-align: justify;
+        }
+
+        #hero h4,
+        #hero hp {
+            margin-bottom: 0; /* Elimina el margen inferior */
+        }
+
+        .circle-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .circle {
+            vertical-align: middle;
+            margin-bottom: 0px; /* Ajusta este valor según tus necesidades */
+            display: inline-block;
+            background-color: #27245d;
+            color: #fff;
+            font-size: 44px;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        .contact-button {
+            vertical-align: middle;
+            margin-bottom: 0px; /* Ajusta este valor según tus necesidades */
+            display: inline-block;
+            background-color: #27245d;
+            color: #fff;
+            font-size: 44px;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .contact-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para la sección de pie de página */
+        footer {
+            background-color: #27245d;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: -210px;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-column {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-buttons a {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-buttons a:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <a href="Sam.html"><img src="E:/imagenes/png/logo2.png" alt="Logo de la Empresa"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Sam.html">Inicio </a></li>
+                <li><a href="Actividades.html">Actividades </a></li>
+                <li class="dropdown">
+                    <a href="#" id="colectivoLink">Colectivo</a>
+                    <ul class="submenu">
+                        <li><a href="Rosa María Torres Vera.html">Rosa María Torres Vera</a></li>
+                        <li><a href="Luis Manuel Mendoza Becerra.html">Luis Manuel Mendoza Becerra</a></li>
+                        <li><a href="Luis Ángel Tafoya Urbán.html">Luis Ángel Tafoya Urbán</a></li>
+                    </ul>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <div class="et_pb_image_wrap">
+                    <img src="E:/imagenes/fotografias del colectivo/Luis Manuel Mendoza Becerra.png" alt="Imagen de la sección héroe">
+                </div>
+                <div class="hero-info">
+                    <h1>Luis Manuel Mendoza Becerra</h1>
+                    <h2>Jefe de servicio</h2>
+                    <hn>No. Empleado: – – – –</hn>
+                    <h4><span class="circle"><i class="fas fa-home"></i></span>P.º San Isidro, San Isidro, 54890</h4>
+                    <hp>Melchor Ocampo, Méx.</hp>
+                    <h5><a href="mailto:autobusesmelchor1@gmail.com" class="contact-button"><i class="fas fa-paper-plane"></i></a>autobusesmelchor1@gmail.com</h5>
+                    <h6><a href="tel:+5543269369" class="contact-button"><i class="fas fa-phone"></i></a>55 4326 9369</h6>
+                    <h5><a href="samautotransportes.com" class="contact-button"><i class="fas fa-paper-plane"></i></a>samautotransportes.com</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-columns">
+            <div class="footer-column">
+                <img src="E:/imagenes/png/logo.png" alt="Logo de la Empresa" width="150">
+            </div>
+            <div class="footer-column">
+                <h3>Servicios de Diseño Web</h3>
+                <ul>
+                    <li><a href="#">Diseño Web Responsivo</a></li>
+                    <li><a href="#">Desarrollo de E-Commerce</a></li>
+                    <li><a href="#">Optimización SEO</a></li>
+                    <li><a href="#">Diseño de UX/UI</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Páginas Legales</h3>
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                </ul>
+            </div>
+  <!-- Columna 4: Botones de redes sociales -->
+            <div class="footer-column">
+                <h3>Síguenos en Redes Sociales</h3>
+                <div class="social-buttons">
+                    <a href="https://www.facebook.com/profile.php?id=100071632045654" class="fab fa-facebook-f"></a>
+                    <a href="https://twitter.com/Samautotransp" class="fab fa-twitter"></a>
+                    <a href="https://www.instagram.com/samautotransportes?igsh=c3F0Ymd1NXZzNXdv" class="fab fa-instagram"></a>
+                    <a href="https://www.youtube.com/channel/UCom5ijSoU1Ql-JqUF1cDFAQ" class="fab fa-youtube"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
